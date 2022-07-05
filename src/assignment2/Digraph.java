@@ -2,11 +2,33 @@ package assignment2;
 
 import java.util.*;
 
-// Build the graph receiving a matrix or an adjList,
-// but my graph is going to be represented by an adjList
-// to be more efficient.
+/*
+    To solve each of the points of the assignment I have used a digraph with two constructors,
+    one of them to build the graph with a matrix and the other to build the graph with an
+    adjacency list. However, the digraph that I am going to build in memory will always use an
+    adjacency list to be more efficient.
 
-// TODO explain how I resolve the problem and the cost
+    To detect if the graph is cyclic I go through the graph with DFS, and additionally I use
+    a boolean vector to know the parents of the current node invoked in the current call
+    to the function, in case one of these nodes has already been visited the graph will be
+    cyclic.
+
+    Assuming that the graph represents dependencies between the nodes, we can use the
+    topological order to extract the dependencies of each of the nodes of the graph.
+    To get the topological order we can also use DFS and additionally use a linked list to
+    put each of the nodes at its corresponding point in time, which is once all its children
+    have been explored.
+
+    The cost of DFS in the case of using an adjacency matrix would have been O(V^2) since
+    in order to know all the edges, we must traverse the entire matrix which is of
+    size V x V.
+
+    In this case I have used an adjacency list to gain efficiency and the DFS cost would
+    be O(V + E) since in the worst case we have to traverse all vertices only once added
+    to their edges.
+
+ */
+
 public class Digraph {
 
     private int V;
@@ -34,7 +56,7 @@ public class Digraph {
         this.adjList = adjList;
     }
 
-    // DFS search adapted to know if the graph is cyclic
+    // DFS search
     private void dfs(int v, boolean[] visited, boolean[] recursion, LinkedList<Integer> solution) {
         visited[v] = true;
         recursion[v] = true;
