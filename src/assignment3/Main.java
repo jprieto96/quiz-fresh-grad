@@ -5,9 +5,9 @@ import java.util.*;
 public class Main {
 
     /*
-        For this exercise I did everything I could, I did not have much time to resolve it
-        completely and correctly.
-
+        I did not have time to do the whole exercise, so I have done almost all the points, including
+        normalizing and extracting the DPI, until I have the corresponding DPI for each
+        client-office. At the end of the exercise I generate a CSV with the following information
      */
 
     public static void main(String[] args) {
